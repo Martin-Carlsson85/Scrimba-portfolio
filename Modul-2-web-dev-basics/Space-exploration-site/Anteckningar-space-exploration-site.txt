@@ -1,0 +1,48 @@
+För fria och högupplösta bilder - gratis
+https://unsplash.com/
+
+Infoga bild via css
+ background-image: url("images/universe.jpg");
+
+Få bilden att täcka hela webbläsaren/containern
+ background-size: cover;
+
+Google fonts
+Knappar ärver inte fot-families
+Istället får man sätta:
+font-family: inherit eller sätta samma font på knappen som i bodyn.
+
+Om man vill hämta fonter från andra externa källor:
+@font-face {
+    src: url("Corleone.ttf");
+    font-family: Corleone;
+}
+
+Span = inline 
+Div = block
+
+cta = call to action. Används när man t.ex. vill skapa en knapp av en text.
+
+id = måste ha ett unikt namn
+
+gifs och webp är format på rörliga bilder
+webp är mer kompakta och är därföfr inte lika stora 
+Rörliga bilder finns:
+https://giphy.com/
+
+Den översta sektionen kallas ofta för Hero.
+Den kan innefatta: titel, knappar och logo.
+
+Skugga
+text-shadow: 5px 5px  5px   black
+	      -   |   blur  färg
+
+Snygg effekt med vit text och vit bakgrund och text-shadow: 0px 0px 5px black
+
+SAMMANFATTNING
+Background images
+Webp format
+Google Fonts
+The <span> tag
+IDs & utility classes
+Text-shadows

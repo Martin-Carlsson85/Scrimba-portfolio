@@ -1,0 +1,57 @@
+HTML - Content (text, bilder, knappar)
+
+CSS - Design (så att sidan ser bra ut)
+
+JS - Funktioner (databas, hantera betalningár, utföra uppgifter)
+
+Sibbling = syskon
+
+<h1> - <h5> = Heading
+
+<p> = Paragraf
+
+<img src=""> = Image (self closing tag, src = source) 
+width = 100% innebär 100% av förälder
+
+Nesting (görs ofta med divar)
+
+	<div> = divider (delare på svenska)
+
+<button> = Knapp
+
+<input> = type="text" (self closing tag)
+	  type="date"
+	  type="time"
+	  type="color" 
+placeholder="Name" 
+
+<a href="work.html">Detta är en länk</a> = Anchor tag (links)
+target="_blank" = öppnar länken i en ny flik
+href = hypertext referens
+
+Listor
+<ol></ol> = Orderd lists
+<ul></ul> = Unorder lists
+
+
+
+HTML struktur
+<!doctype html>
+<html>
+	<head>
+		Metadata
+		(styles, title, scripts, etc)
+	<body>
+		The tags
+</html>
+
+SAMMANFATTNING build & deploy your first website
+Core HTML tags
+Nesting
+Buttons
+Input field
+Anchor tags
+Document structure
+Lists
+
+

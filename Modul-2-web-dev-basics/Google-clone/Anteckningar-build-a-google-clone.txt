@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="styles.css" />
+rel = relation, vilken relation detta dokumentet har till html-filen som den är infogad i 
+"en sheet som innehåller styles" = stylesheet
+
+body{ = selector
+     color  :   red; 
+     prpoerty; value
+}
+
+  background: yellow;     /* red, blue, yellow, etc */
+    color: red;             /* red, blue, yellow, etc */
+    font-size: 20px;        /* 0px - 100px and beyond */
+    font-weight: lighter;   /* lighter, normal, bold  */
+    text-align: right;      /* left, center or right  */ 
+    margin-top: 5px;        /* From 0px and upwards   */
+
+Hex-kod = Som ett recept på en färg
+#8B4513 
+
+Inline & block element
+block: "display block stacks on top", blockerar ut alla andra element på samma rad, vill vara ensam
+inline: 
+
+Kapsla in allt i div-ar, bättre synlighet, bättre standard. Sätt margin på diven istället.
+
+Ge varje element ett beskrivande namn och sen själva elementet. T.ex. logo-img
+
+bodyn har alltid margin: 8px; standard
+
+Två margins mot varandra resulterar i en kollaps "collapsing margins". Den största margin vinner.
+Sett därför bara margin på ena elementet.
+
+Centrering med margins
+1. display: block
+2. måste ha en bredd (width) (vissa element har en inplicit bredd)
+3. margin left/right: auto (auto betyder; ta upp all tillgänglig yta)
+
+Två sätt att centrera inline-element
+1. text-align: center (fungerar på alla inline-element och sätts på förälder-elementet)
+2. Flexbox
+
+Padding skapar mellanrum/andrum inuti elementet.
+Margin skapar mellanrum utanför elementet, mot andra element
+
+Padding i en div är default 0px.
+Standard är att sätta dubbel padding på höger och vänster än vad man har uppe och nere
+
+Border = Kontrollerar ytan mellan margin och padding. 
+border: 8px solid black; tjockleken | typ av linje | färgen 
+
+border-radius: hörnens mjukhet
+
+Använd line-height när det gäller input-field och istället för height
+
+Låg kontrast = Svårt att se någon skillnad mellan färgerna
+Hög kontrast = Tydlig skilland mellan färgerna
+Kontrastkontrollerare:
+https://userway.org/contrast/?fg=f8f9fa&bg=ffffff
+4.5 är bra i contrast ratio
+
+FLEXBOX
+Tvingar div-wrapper att bli inline-element och lägga sig på en horisontell rad.
+Centrera knappar horisontellt
+display: flex;
+justify-content = Hanterar längst main-axis (horisontellt)
+gap: 10px;
+
+SAMMANFATTNING
+CSS Syntax
+Inline vs block
+Margins - space utanför element
+Padding - space innanför element
+Borders - Mellan margins och paddings
+Divs
+Centrering - 3 olika sätt att göra det på
+Flexbox
+

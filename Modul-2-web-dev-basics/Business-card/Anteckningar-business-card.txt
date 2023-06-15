@@ -1,0 +1,44 @@
+Bilder
+Alt-text ska alla bilder ha
+Ifall någon är synskadad
+Om inte bilden renderar
+Rankar högre på google
+
+Inkludera inte "image of"
+Skriv max 125 tecken
+En bra alt-text är en text som man kan beskriva "i ett telefonsamtal"
+
+FLEXBOX
+Påverkar bara sina direkta barn, därför kan man kapsla in elementen i divar så påverkas inte elementen inuti
+diven utan bara diven i sig
+
+flexbox är per default display block.
+
+Utility class = En klass man skapar för en enskild css-inställning / har bara ett jobb
+
+ARV (alla properties som ärver) https://stackoverflow.com/questions/5612302/which-css-properties-are-inherited
+Skriv mindre kod
+Mindre buggar
+Mer effektivt
+
+Viktigt om pixlar och %
+Pixlar är statiska och % är dynamiska
+Sätter man en box till 400px så är den alltid 400px
+Sätter man en box till 50% så är det 50% av viewport
+
+Ctrl + D = För att markera flera av samma samtidigt
+
+Web-safe fonts = https://www.w3schools.com/cssref/css_websafe_fonts.php
+fonter som redan finns hos klienten
+Sans-serif och serif är två olika kategorier av fonter. 
+
+Color palettes
+https://coolors.co/
+
+SAMMANFATTNING
+Bilder och alt-texter
+Flex-child-containers
+Arv
+Shorthands
+Wed-safe fonts
+Color palettes

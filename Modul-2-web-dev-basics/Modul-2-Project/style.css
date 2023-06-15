@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 5px solid white;
+}
+
+.img-kalmar-slott {
+  width: 100%;
+}
+
+h1,
+h2 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+h2 {
+  top: 50%;
+}
+
+img {
+    width: 150px;
+    border-radius: 5px;
+  
+  }
+
+.section-attraction {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #F1FAEE;
+}
+
+.flex-vanlig {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.guide-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card{
+    border-radius: 5px;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background: #A8DADC;
+    color: #2b2839;
+    border-bottom: 6px solid grey;
+    
+}
+
+.text-guide {
+    width: 200px;
+   
+}
+

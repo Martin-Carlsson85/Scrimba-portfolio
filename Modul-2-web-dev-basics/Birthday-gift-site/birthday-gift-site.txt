@@ -1,0 +1,20 @@
+FLEXBOX
+alignt-item har standard värdet stretch, förutsätter att det inte finns någon height satt
+
+Main axis (justify-content) --
+Cross axis (align-items) |
+
+När man ändrar från ROW till COLUMN, ändras också cross och main axis. De byter byter plats.
+
+texta-align fungerar bara på inline elements inuti sin container
+
+Inline-element kan inte tvingas till en storlek (width och height). De ska bara vara så stora som innehållet i 
+containern är. Det är bara block-element som man kan justera storleken på.
+
+Gradient
+background: linear-gradient(från, till)
+
+div:hover
+
+SPACIFIKATION
+Ju mer specifik en selector är ju högre prioritet får den
