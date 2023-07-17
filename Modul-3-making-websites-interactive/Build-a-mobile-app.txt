@@ -1,0 +1,100 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+
+OBS! Vid import/export måste alltiod type="module" skrivas i HTML script-taggen
+
+const appSettings = {
+    databaseURL: "https://realtime-database-48de3-default-rtdb.europe-west1.firebasedatabase.app/"
+}
+
+const app = initializeApp(appSettings)
+const database = getDatabase(app)
+const todosInDB = ref(database, "todos")
+
+------------------------------------------------------------------------------------------------------------------
+
+Göra om objekt till array (ifall man hellre vill arbeta med arrayer)
+
+let scrimbaUsers = {
+    "00": "sindre@scrimba.com",
+    "01": "per@scrimba.com",
+    "02": "frode@scrimba.com"
+}
+
+let scrimbaUsersEmails = Object.values(scrimbaUsers)
+let scrimbaUsersIDs = Object.keys(scrimbaUsers)
+let scrimbaUsersEntries = Object.entries(scrimbaUsers)
+
+console.log(Object.values(scrimbaUsers)) = Ger bara värdet
+console.log(Object.keys(scrimbaUsers)) = Ger bara nykeln
+console.log(Object.entries(scrimbaUsers)) = Ger både värdet och nyckeln
+
+------------------------------------------------------------------------------------------------------------------
+Firebase
+Snapshot = När data skickas från databas för att uppdateras på klienterna
+onValue = Funktion som lyssnar av databasen, den hämtar data från databasen när något ändrats
+
+-----------------------------------------------------------------------------------------------------------------
+
+För att synka med databasen, varje gång databasen uppdateras
+
+const booksInDB = ref(database, "books") = Detta är referensen till databasen, "books" måste ändras till rätt databas
+
+onValue(booksInDB, function(snapshot) {
+    let booksArray = Object.values(snapshot.val())
+    
+    clearBooksListEl() //Rensar listan innan ny lista renderas med hjälp av for-loopen
+    
+    // Challenge: Write a for loop where you console log each book.
+    for (let i = 0; i < booksArray.length; i++) {
+        let currentBook = booksArray[i]
+        
+    }
+})
+
+onValue(shoppingListInDB, function(snapshot) {
+    let shoppingList = Object.values(snapshot.val())
+    console.log(shoppingList)
+
+--------------------------------------------------------------------------------------------------------------
+flex-wrap
+Ser till att objekten håller sig inom förälderns bredd
+
+--------------------------------------------------------------------------------------------------------------
+För att lägga till en eventlyssnare på varje item måste man använda createElement istället för innerHTML
+Detta gör det möjligt att köra en funktion varje gång användaren klickar på en item
+
+createElement:
+1. Skapa <li>: 				let newEl = documnet.createElemet("li")
+2. Placera content i li-taggen: 	newEl.textContent = "Something"
+3. Placera li-taggen inuti ul-taggen:   shoppingListEl.append(newEl)
+
+
+-------------------------------------------------------------------------------------------------------------
+
+För att radera
+    newEl.addEventListener("click", function() {
+        
+        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+        
+        remove(exactLocationOfItemInDB)
+    })
+    
+    shoppingListEl.append(newEl)
+}
+
+---------------------------------------------------------------------------------------------------------------
+user-select: none
+För att undvika att texten blir markeras av användaren
+
+---------------------------------------------------------------------------------------------------------------
+
+Setting the Viewport
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+Gör så att innehåller täcker hela sidan som den ska
+
+Utan detta så krymper innehållet och blir oläsligt
+
+---------------------------------------------------------------------------------------------------------------
+
+favicon.io = konvetera bilder till favicons

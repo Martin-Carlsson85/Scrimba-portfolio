@@ -1,0 +1,89 @@
+JavaScript kommentera ut ctrl+k+c
+
+document = refererar till själva html-dokumentet
+
+<script src="index.js"></script>
+
+Detta fungerar inte då variabeln 
+console.log(myAge)
+// 1. Create a variable, myAge, and set its value to your age
+let myAge = 35
+!ReferenceError: Cannot access 'myAge' before initialization
+
+Reasign = ändra värdet i variabeln
+
+///////////////////////////////////////////////////////
+
+let count = 5
+(1)count = (2)count + 1
+1 fungerar som en räknare, här är count(1) 6
+2 här är count(2) 5+1 = 6
+
+Här är ett exempel:
+
+let bonusPoints = 50
+console.log(bonusPoints)
+ 		50
+bonusPoints = bonusPoints + 50
+console.log(bonusPoints)
+		100
+bonusPoints = bonusPoints - 75
+console.log(bonusPoints)
+		25
+bonusPoints = bonusPoints + 45
+console.log(bonusPoints)
+
+bonusPionts = 70
+
+/////////////////////////////////////////
+
+let lap1 = 34
+let lap2 = 33
+let lap3 = 36
+
+// Create a function that logs out the sum of all the lap times
+function logLapTime() {
+    //let totalTime = lap1 + lap2 + lap3
+    console.log(totalTime)
+}
+
+logLapTime()
+
+let = blockscope, lever inuti ett block
+
+///////////////////////////////////////////
+
+DOM = Hur man använder JavaScript för att ändra/modifiera en webbsida
+D = Document = HTML-dokumentet
+O = Object = Varje element representeras av ett JavaScriptelement 
+M = Model = Är en modell av det riktiga elementet
+
+innerText = Returnerar ren text, inga HTML-taggar (renderar inga mellanslag, det gör textContent)
+textContent = Returnerar text och HTML-taggar men html är bara text (HTML-taggarna går inte att manipulera)
+innerHTML = Returnerar text och HTML-taggarna som renderbar HTML och går därför att manipulera 
+
+Om man sätter ihop en sträng med ett nummer så vinner alltid strängen. Numret blir en sträng.
+
+////////////////////////////////////////////////
+welcomeEl.innerText = greeting + name
+
+// Add an emoji to the end! 👋
+// WRITE YOUR CODE BELOW HERE
+// HINT: count = count + 1
+
+welcomeEl.innerText = welcomeEl.innerText + "👋"
+//////////////////////////////////////////////////
+
+SAMMANFATTNING
+script tag
+variables
+numbers
+strings
+console.log()
+functions
+The DOM
+getElementById()
+innerText
+textContent
+
+

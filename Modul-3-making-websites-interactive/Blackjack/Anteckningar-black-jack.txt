@@ -1,0 +1,137 @@
+
+=== tre lika med tecken betyder strikt lika med, jämför både VÄRDE och TYP
+== två lika med tecken betyder icke strikt lika med, jämför bara VÄRDET
+
+/////////////////////////////////////////////////////////////////////////////  
+
+// Check if the person is elegible for a birthday card from the King! (100)
+
+let age = 100
+
+if(age < 100){
+    console.log("Not elegible")
+}else if(age === 100){
+    console.log("Here is your birthday card from the King!")
+}else{
+    console.log("Not elegible, you have already gotten one")
+}
+
+// if less than 100    -> "Not elegible"
+// else if exactly 100 -> "Here is your birthday card from the King!"
+// else                -> "Not elegible, you have already gotten one"
+
+/////////////////////////////////////////////////////////////////////////////////
+
+console.log(4 === 3)  // false
+console.log(5 > 2)    // true
+console.log(12 > 12)  // false
+console.log(3 < 0)    //false
+console.log(3 >= 3)   // true
+console.log(11 <= 11) //true
+console.log(3 <= 2)   //false
+
+Deklarare = Skapa
+Assign = Tilldela ett värde
+Reassign = Tilldela ett nytt värde
+
+Array = Orderd list of items (kallas för coposite / complex data type
+Array-Metoder: push (lägg till item i slutet)
+		pop (tar bort den sista item)  
+
+Primitiva datatyper (3 av dem)
+string
+number
+boolean
+
+FOR LOOP
+// Count to ten!
+
+// We need to specify...
+
+// Where should we START counting?
+// Where is the FINISH line?
+// What's the STEP SIZE we should use?
+
+//    START           FINISH       STEP SIZE
+for ( let count = 1;  count < 11;  count += 1 )  {
+    		   upp till 11, alltså 10, vill man ha 11 så måste man lägga till =11 
+    console.log(count)
+
+}
+
+------------------------------------------------------------
+
+let messages = [
+    "Hey, how's it going?",        
+    "I'm great, thank you! How about you?",
+    "All good. Been working on my portfolio lately.",
+    "Same here!"
+]
+
+for(let i = 1; i < messages.length; i++){
+    console.log(`${i} ${messages[i]}`)
+}
+
+------------------------------------------------------------
+
+let sentence = ["Hello ", "my ", "name ", "is ", "Per"];
+let greetingEl = document.getElementById("greeting-el");
+
+// Render the sentence in the greetingEl paragraph using a for loop and .textContent
+for(let i = 0; i < sentence.length; i++){
+    greetingEl.textContent += sentence[i];
+}
+
+För att lägga till et mellanslag
+for(let i = 0; i < sentence.length; i++){
+    greetingEl.textContent += sentence[i];
+    
+    if (i !== sentence.length - 1) {
+        greetingEl.textContent += " ";
+    }
+}
+
+------------------------------------------------------------
+Funktioner som är deklarerade "funktions-deklaration" blir hostade, alltså "lyfts till toppen" vilket betyder 
+att vart man är deklarare dem så blir de hostade upp till toppen och därav tillgängliga överallt.
+Detta gäller inte funktionsuttryck.
+-------------------------------------------------------------
+
+What does Math.random() do?
+
+Your answer: it generates a random number between 0 and 1 (not inclusive of 1)
+
+let randomNumber = Math.random() * 6
+
+From: 0
+To: 5.999999
+
+// Try to modify the expression so that we get a range from 1 to 6
+let randomNumber = Math.floor( Math.random() * 6 ) + 1
+
+----------------------------------------------------------------
+
+Logical operator
+&&
+||
+
+---------------------------------------------------------------
+Objekt (kallas för composite / complex data type)
+Data sparas som key-value pairs
+
+playerEl.textContent = player.name + ": $" + player.chips
+
+---------------------------------------------------------------
+
+SAMMANFATTNING
+arrays
+objects
+boolens
+if else statements
+logical operators
+for loops
+The Math object
+return statements
+
+
+

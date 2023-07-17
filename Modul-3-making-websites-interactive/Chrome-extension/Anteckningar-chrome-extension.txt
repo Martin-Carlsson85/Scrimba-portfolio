@@ -1,0 +1,136 @@
+Box-sizing: border-box ändrar hur elementets storlek beräknas genom att inkludera padding och border, 
+men marginen läggs fortfarande utanför elementets totala storlek.
+
+Om möjligt använd const, annars använd let
+
+-----------------------------------------------------------------------------------------------------------
+
+Här introduceras innerHTML som gör att man kan använda HTML tillsammans med JS
+const container = document.getElementById("container")
+
+container.innerHTML = "<button>Buy!</button>"
+
+----------------------------------------------------------------------------------------------------------
+
+Två sätt att skriva ut till DOM:en där man skapar element, sätter texten och sen lägger på det i ett element
+
+for (let i = 0; i < myLeads.length; i++) {
+  
+1.   ulEl.innerHTML += "<li>" + myLeads[i] + "</li>"
+    // create element
+    // set text content
+    // append to ul
+
+2.    const li = document.createElement("li")
+      li.textContent = myLeads[i]
+      ulEl.append(li)
+}
+
+----------------------------------------------------------------------------------------------------------
+I en array sparas allt som en lista
+let myLeads = ["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"]
+
+I listItems sparas allt som en HTML-sträng som konkatineras i loopen tillsammans med HTML-taggen
+Alltså HTML-representationen av datan
+
+let listItems = ""
+for (let i = 0; i < myLeads.length; i++) {
+   
+    listItems += "<li>" + myLeads[i] + "</li>"
+}
+ulEl.innerHTML = listItems
+
+DOM-manipulation kostar tid och då är det bättre att köra "ulEl.innerHTML = listItems" en gång utanför loopen
+är att köra det för varje iteration i loopen 
+
+-----------------------------------------------------------------------------------------------------------
+För att tömma input fältet
+inputEl.value = ""
+
+-----------------------------------------------------------------------------------------------------------
+Template strings/literals
+
+    listItems += `
+            <li>
+                <a target='_blank' href='${myLeads[i]}'>
+                    ${myLeads[i]}
+                </a>
+            </li>
+        `
+-------------------------------------------------------------------------------------------------------------
+Local storage
+
+// 1. Save a key-value pair in localStorage
+// 2. Refresh the page. Get the value and log it to the console
+// 3. Clear localStorage
+
+// localStorage.setItem("myName", "Per Harald Borgen")
+
+// let name = localStorage.getItem("myName")
+// console.log(name)
+
+localStorage.clear()
+
+-------------------------------------------------------------------------------------------------------------
+Spara arrays i localstorage
+
+//////////////////TILL ARRAY///////////////////
+
+let myLeads = `["www.awesomelead.com"]`
+
+myLeads = JSON.parse(myLeads)
+
+myLeads.push("www.epiclead.com")
+
+console.log(myLeads)
+
+///////////TILL STRÄNG////////////
+
+let myLeads = ["www.awesomelead.com"]
+
+myLeads = JSON.stringify(myLeads)
+
+console.log(typeof myLeads)
+
+-------------------------------------------------------------------------------------------------------------
+
+Truthy and falsy 
+
+falsy:
+false
+0
+""
+null -> hur man som utvecklare visar att något är tomt
+undefined -> hur JavaScript visar att något är tomt
+NaN
+
+------------------------------------------------------------------------------------------------------------
+
+deleteBtn.addEventListener('dblclick', function(){
+    localStorage.clear
+    myLeads = []
+    listItems = ""
+    
+})
+
+-----------------------------------------------------------------------------------------------------------
+
+Funktioner
+
+Paramter -> Inuti functionen (inuti funktionen)
+Argument -> När man kallar på funktionen (utanför funktionen)
+
+-----------------------------------------------------------------------------------------------------------
+
+SAMMANFATTNING
+const
+addEventListener()
+innerHTML
+input.value
+function parameters
+template strings
+localStorage
+The JSON object
+objects in array
+
+ 
