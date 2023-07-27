@@ -51,24 +51,32 @@ button:hover{
 
 #shopping-list{
     padding: 0;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
 }
 
+ul{
+    /* padding: 0;
+    margin: 0; */
+}
+
 li{
+    margin-top: 5px;
     font-size: 18px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
     background-color: #FFFDF8;
     list-style: none;
     border: 0;
-    width: 50px;
+    /* width: 50px; */
     padding: 10px 15px;
     text-align: center;
     border-radius: 8px;
     flex-grow: 1;
     cursor: pointer;
+    /* word-wrap: break-word;
+    word-break: break-all; */
 }
 
 li:hover{

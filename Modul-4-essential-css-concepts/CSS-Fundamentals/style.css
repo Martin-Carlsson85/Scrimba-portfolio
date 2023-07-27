@@ -1,0 +1,98 @@
+body{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-align: center;
+   font-family: 'Roboto', sans-serif;
+   font-size: 21px;
+}
+
+.section-spacer{
+    padding: 50px 0;
+}
+
+.container{
+    width: 580px;
+    margin: 0 auto;
+}
+
+.inverse{
+    background-color: #252525;
+    color: #FFF;
+}
+
+
+img{
+    width: 200px;
+    border-radius: 50%;
+    border: 3px solid #FFF;
+}
+
+/* Typografi */
+h1, h2{
+    font-weight: 300;
+}
+
+h1{
+    margin: 0;
+    font-size: 75px;
+}
+
+h2{
+    margin: 0;
+    font-size: 42px;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+    padding: 20px 0;
+}
+
+h3{
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 0;
+}
+
+.small-text{
+    font-size: 16px;
+}
+
+.accent-text,
+.name,
+time{
+    color: #99D930;
+    font-weight: 900;
+}
+
+.accent-text{
+    display: block;
+}
+
+a {
+    color: #99D930;
+    font-weight: 900;
+}
+
+a:hover,
+a:focus {
+    color: #131313;
+}
+
+.inverse .btn:hover,
+.inverse .btn:focus{
+    background: #fff;
+    color: #252525;
+}
+
+.btn{
+    background-color: #99D930;
+    color: #252525;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover,
+.btn:focus{
+    background-color: #252525;
+    color: #FFF;
+}

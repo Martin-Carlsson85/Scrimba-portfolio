@@ -1,0 +1,78 @@
+Fyra vanliga sematiska taggar
+
+<header> - Site title, logo, and nav
+<section> - A stand-alone section
+<footer> - Copyright, Ts & Cs, etc
+<main> - The page´s unique content (sections), inte header och footer då de är samma för varje sida
+
+----------------------------------------------------------------------------------------------------------------
+
+16px - standard
+
+----------------------------------------------------------------------------------------------------------------
+
+Collapsing margin
+
+When an element touches its parent, its top and bottom margins will merge with the margins of the parent element.
+Lösning: lägg till padding istället
+
+Detta berör inte Flexbox och Grid 
+
+----------------------------------------------------------------------------------------------------------------
+
+Det är "best practice" att starta en <section> med en <heading>
+
+---------------------------------------------------------------------------------------------------------------
+
+Pseudo-classer kan användas på alla element
+
+-----------------------------------------------------------------------------------------------------------------
+Länkar
+a
+a:hover
+a:active
+
+----------------------------------------------------------------------------------------------------------------
+CSS Points Specificity
+elements = 1 point
+class = 10 points
+id = 100 points
+
+General styles: element selector
+Everything else: class selector
+
+Är en inställning överstryken i devtools är det för att den har lägre specifikation.
+
+----------------------------------------------------------------------------------------------------------------
+
+Knapp eller länk?
+
+Används knapp för att påverka sidan med front-end eller back-end (tänk JS)
+Använd länk för att navigera inom eller utanför sidan
+
+---------------------------------------------------------------------------------------------------------------
+
+Block element
+- Stack on top
+- div, p, h1
+- Sätter height och margin-top och margin-bottom
+
+Inline element
+- Side by side
+- Span, a, img
+- Kan inte sätta height och margin-top och margin-bottom
+
+Inline-block
+- Side by side
+- Button och input
+- Sätter height och margin-top och margin-bottom
+
+----------------------------------------------------------------------------------------------------------------
+
+SAMMANFATTNING
+Semantik
+Hover and active states using pseudo selectors
+Specificity
+Compound selectors (and when to avoid them)
+Inline-block
+Multiple classes on one element

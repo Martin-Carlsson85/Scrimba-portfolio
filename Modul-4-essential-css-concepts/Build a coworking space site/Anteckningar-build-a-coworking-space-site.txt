@@ -1,0 +1,49 @@
+Positionering
+
+Förälder
+display: flex
+
+Barn
+margin-left/margin-right: auto
+margin-bottom/margin-top: auto
+
+Annat sätt at positionera är att sätta postion:absolute på aktuellt element som man vill flytta och 
+position:relative på elementet man vill placera den i
+-----------------------------------------------------------------------------------------------------------------
+
+När man skriver position:absolute så händer två saker:
+1. Elementet tas ur sitt flöde
+2. Det blir ett inline-element
+
+Glöm inte: top: 0
+	   left: 0
+
+------------------------------------------------------------------------------------------------------------------
+Alla inline-element har en liten "white space" under sig för att skapa lite space till andra element.
+För att ta bort detta, använd display: block
+
+--------------------------------------------------------------------------------------------------------------
+Fyra sätt att centrar på:
+1. align-items: center (används på föräldern)
+2. align-self: center (används på barnet)
+3. margin: auto (används på barnet)
+
+4. display: flex (används på föräldern) 
+   margin: auto (används på barnet)
+
+------------------------------------------------------------------------------------------------------------------
+position: fixed, stannar på samma position när man skrollar
+top: 0
+left: 0
+
+-----------------------------------------------------------------------------------------------------------------
+Position: absolute = Låser sig i förhållande till det element som är satt till relativ
+Position: fixed = Låser sig till window-objektet och följer med vid skrollning
+
+SAMMANFATTNING
+margin: auto on flex children
+position: absolute & relative
+align-self
+position: fixed
+
+ 

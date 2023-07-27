@@ -98,3 +98,33 @@ Utan detta så krymper innehållet och blir oläsligt
 ---------------------------------------------------------------------------------------------------------------
 
 favicon.io = konvetera bilder till favicons
+
+---------------------------------------------------------------------------------------------------------------
+
+SAMMANFATTNING
+import - importera funktionalitet från Firebase
+Firebase: initializeApp - Används för att initialisera appen genom URL:en, alltså appSettings.
+Vi måste ha ett app-objekt att arbeta med.
+Firebase: getDatabase - använder databas-funktionen för att skapar databasen och matar med app 
+Firebase: reference - Allting är referens i Firebase, vi behöver "shoppingList" referns för att kunna arbeta emot
+Firebae: push - För att skicka data till databasen push(shoppingListDB, inputValue)
+Firebase: onValue - Lyssnar på ändringar som sker och skickar en snapshot när en ändring sker
+ID:s - Varje item måste ha sin unika ID
+Firebase: remove - ID:et används för att kunna ta bort items från databasen 
+Object - Array: Göra om objekt till array för att kunna loopa igenom arrayen
+createElement istället för innerHTML då createElement är mer kraftfullt än innerHTML
+Flexbox: flex-wrap
+Flexbox: gap istället för margin
+user-select: Så att användaren inte av misstag markerar något
+Setting the viewport
+Favicon
+Web Application Manifest
+
+Länk till icon:
+https://freeicons.io/supermarket-icon-set-2/fruits-vegetables-cart-supermarket-healthy-food-vegan-icon-157169
+
+
+
+
+
+

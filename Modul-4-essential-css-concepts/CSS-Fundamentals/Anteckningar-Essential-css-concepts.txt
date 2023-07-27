@@ -1,0 +1,28 @@
+Det första man bör göra på en sida är att sätta upp typografin.
+font-family (Google font)
+font-size
+font-weight
+
+Va så explicit som det går
+
+Alla text-element har top och bottom-margin, ta bort det.
+
+---------------------------------------------------------------------------------------------------------------
+
+Små förändringar gör stor skillnad
+
+Använd inte STRONG i HTML om texten inte är viktig
+Använd <span> om det bara är för styling 
+
+inline-element kan göras till block-element
+block-element kan göras till inline-element
+
+---------------------------------------------------------------------------------------------------------------
+Utliyty class
+
+Används för att slippa skriva mer kod än nödvändigt
+
+.inverse{
+    background-color: #252525;
+    color: #FFF;
+}
