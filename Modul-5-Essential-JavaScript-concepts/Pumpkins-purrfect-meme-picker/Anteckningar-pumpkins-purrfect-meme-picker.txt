@@ -1,0 +1,307 @@
+Trailing comma = (sometimes called "final commas") can be useful when adding new elements, 
+parameters, or properties to JavaScript code. If you want to add a new property, you can add 
+a new line without modifying the previously last line if that line already uses a trailing comma. 
+This makes version-control diffs cleaner and editing code might be less troublesome.
+
+------------------------------------------------------------------------------------------------------------------
+1. Först loopa igenom cats arrayen
+2. Sen loopa igenom varje emotionTags
+3. Sen skicka varje emotion till emotionsArray
+
+function getEmotionsArray(cats){
+    const emotionsArray = []
+    for (let i = 0; i < cats.length; i++){
+        for (let j=0; j < cats[i].emotionTags.length; j++){
+                emotionsArray.push(cats[i].emotionTags[j])
+        }
+    }
+console.log(emotionsArray)
+}
+
+getEmotionsArray(catsData)
+
+-----------------------------------------------------------------------------------------------------------------
+För att komma åt varje första item i powers med for-of loop:
+
+const characters = [
+    {
+        title: 'Ninja',
+        emoji: '🥷',
+        powers: ['agility', 'stealth', 'aggression'],
+    },
+    {
+        title: 'Sorcerer',
+        emoji: '🧙',
+        powers: ['magic', 'invisibility', 'necromancy'],
+    },
+    {
+        title: 'Ogre',
+        emoji: '👹',
+        powers: ['power', 'stamina', 'shapeshifting'],
+    },
+    {
+        title: 'Unicorn',
+        emoji: '🦄',
+        powers: [ 'flight', 'power', 'purity'],
+    }
+]
+
+for (let character of characters){
+    console.log(character.powers[0])
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+För att komma åt alla items i characters powers
+
+for (let character of characters) {
+    for (let power of character.powers) {
+        console.log(power);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+Så fort man ska iterera över något måste man tänka på att först skapa en tom array eller strängvariabel
+
+function getEmotionsArray(cats){
+    const emotionsArray = []   <----HÄR!!
+
+    for (let cats of catsData) {
+        for (let emotionTag of cats.emotionTags) {
+            emotionsArray.push(emotionTag)
+        }
+    }
+    return emotionsArray
+}
+
+const emotionalRadios = document.querySelector('.emotion-radios')
+
+function renderEmotionsRadios(cats){
+    const emotions = getEmotionsArray(cats)
+    let html = ""		<----HÄR!!
+    for(let emotion of emotions){
+        html += `<p>${emotion}</p>`
+    }
+
+    emotionalRadios.innerHTML = html
+    // console.log(emotions);
+}
+
+renderEmotionsRadios(catsData)
+
+--------------------------------------------------------------------------------------------------------------
+Import och export
+
+export const dinnerPartyGuests = [
+    'Elvis Presley', 
+    'The Queen of England',
+    'Alan Turing', 
+    'Nelson Mandela', 
+    'Mahatma Gandhi', 
+    'Aristotle',
+    'Albert Einstein'
+    ]
+
+import { dinnerPartyGuests } from '/data.js'  <---ROTEN
+
+<script src="script.js" type="module"></script>
+
+----------------------------------------------------------------------------------------------------------------
+
+<div class="radios" id="radios">
+	<div class="radio">
+		<input 
+		type="radio"
+		id="horses"
+		value="horses"
+		name="choice-radios"
+		>
+		<label for="horses">5 duck-sized horses</label>
+	</div>
+	<div class="radio">
+		<input 
+		type="radio"
+		id="ducks"
+		value="ducks"
+		name="choice-radios"
+		>
+		<label for="ducks">1 horse-sized duck</label>
+	</div>
+	<button>Submit</button>
+</div>
+
+------------------------------------------------------------------------------------------------------------------
+
+För att kontrollera ifall en array innehåller ett visst värde
+.includes()
+
+Övning:
+
+const addItemBtn = document.getElementById('add-item-btn')
+const itemInput = document.getElementById('item-input')
+const list = document.getElementById('list')
+
+const shoppingList = []
+    
+addItemBtn.addEventListener('click', function(){
+
+        if(shoppingList.includes(itemInput.value)){
+            console.log('no duplicates')
+        }
+        else{
+            shoppingList.push(itemInput.value)
+            render()        
+        }
+        itemInput.value = '' 
+})
+
+function render(){    
+    let html = ''
+    for (let item of shoppingList){
+        html+= `<li class="list-item">${item}</li>`
+    }
+    list.innerHTML = html
+}
+
+render()
+
+------------------------------------------------------------------------------------------------------------------
+Hur man får ut id ur target element 
+
+container.addEventListener('click', function(e){
+    console.log(e.target.id)
+})
+
+.parentElement
+document.getElementById(e.target.id).parentElement.style.backgroundColor = 'lightblue'
+
+------------------------------------------------------------------------------------------------------------------
+Kom ihåg att document gäller hela sidan (documentet)
+   
+document.getElementById(e.target.id).parentElement.classList.add('read')
+document.getElementById(e.target.id).parentElement.classList.remove('unread')
+
+------------------------------------------------------------------------------------------------------------------
+HTMLCollection = fungerar som en array, man kan iterera över den som en normal array
+
+Här plockar vi ut flera klasser och skapar en array
+
+  const productsArray = document.getElementsByClassName('product')
+    for (let product of productsArray){
+        product.classList.remove('purchased')
+    }
+
+------------------------------------------------------------------------------------------------------------------
+QuerySelector
+ const checkedRadio = document.querySelector('input[type="radio"]:checked')
+    console.log(checkedRadio.value)
+
+------------------------------------------------------------------------------------------------------------------
+
+Checkboxes
+
+<div>
+    <label for="accept-terms">
+        I accept these terms and conditions
+    </label>
+    <input type="checkbox" id="accept-terms">
+</div>
+<div>
+    <label for="accept-maillist">
+        Maillist
+    </label>
+    <input type="checkbox" id="accept-maillist">
+</div>
+
+const continueBtn = document.getElementById('continue-btn')
+const acceptTerms = document.getElementById('accept-terms')
+const acceptMaillist = document.getElementById('accept-maillist')
+
+continueBtn.addEventListener('click', function(){
+    
+    if(acceptMaillist.checked){
+        console.log('Maillist')
+    }else{
+        console.log('Not maillist')
+    }
+    
+    if (acceptTerms.checked){
+        console.log("Terms accepted!")    
+    }
+    else{
+        console.log("Terms refused!")         
+    }
+})
+
+-----------------------------------------------------------------------------------------------------------------
+filter() måste ha en function
+
+const ages = [1, 5, 9, 23, 56, 10, 47, 70, 10, 19, 23, 18]
+
+const adults = ages.filter(function(age){
+    return age >= 18
+})
+
+console.log(adults)
+
+
+const children = ages.filter(function(age){
+    return age < 18 
+})
+
+console.log(children)
+
+------------------------------------------------------------------------------------------------------------------
+
+const series = [
+    {
+        name: 'The Wire',
+        location: 'Baltimore',
+        lengthInHours : 60,
+        genres: ['action', 'thriller', 'detective', 'suspense']
+    },
+    {
+        name: 'Game of Thromes',
+        location: 'Westeros and Essos',
+        lengthInHours : 70.25,
+        genres: ['fantasy', 'action', 'tragedy']
+    },
+    {
+        name: 'Friends',
+        location: 'New York',
+        lengthInHours : 85,
+        genres: ['comedy', 'romance', 'drama']
+    },
+    {
+        name: 'The Walking Dead',
+        location: 'Atlanta',
+        lengthInHours : 131,
+        genres: ['zombie', 'apocalypse', 'thriller', 'suspense']
+    },
+    {
+        name: 'The Big Bang Theory',
+        location: 'Pasadena',
+        lengthInHours : 139.66,
+        genres: ['comedy', 'nerd', 'romance']
+    },
+]
+
+
+const thrillers = series.filter(function(show) {
+    return show.genres.includes('thriller');
+});
+
+console.log(thrillers);
+
+-----------------------------------------------------------------------------------------------------------------
+
+SAMMANFATTNING
+for of
+import/export
+radio & checkbox inputs
+querySelector
+getElementsByClassName
+classList.remove
+.includes()
+.filter()

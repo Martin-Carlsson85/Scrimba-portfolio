@@ -1,0 +1,485 @@
+
+Object destructuring
+
+const favouriteFilm = {
+    title: "Top Gun",
+    year: "1986",
+    genre: "action",
+    star: "Tom Cruise",
+    director: "Tony Scott"
+} 
+
+const {title, year, genre, star, director} = favouriteFilm
+
+// const title = favouriteFilm.title
+// const year = favouriteFilm.year
+// const genre = favouriteFilm.genre
+// const star = favouriteFilm.star
+// const director = favouriteFilm.director
+
+console.log(`My favourite film is ${title} starring ${star}. It's an ${genre} film that was directed by ${director} and released in ${year}.`)
+
+-----------------------------------------------------------------------------------------------------------------
+
+.map()
+
+//Convert these Miles to KM! 
+const distanceWalkedMilesArr = [140, 153, 161, 153, 128, 148]
+
+const conversionFactorMilesToKm = 1.6
+
+const distanceWalkedKmArr = distanceWalkedMilesArr.map(function(distanceMiles){
+    return distanceMiles * conversionFactorMilesToKm
+})
+
+console.log(distanceWalkedKmArr)
+
+
+Så här kan man också göra:
+function convertMilesToKms() {
+    return distanceWalkedMilesArr.map(function (distanceMiles, index) { <--- Denna returnerar allt från funktionen convertMilesToKms
+        return `Month ${index}: ${distanceMiles * conversionFactorMilesToKm}KM` <--- Denn returnerar det .map() gör
+    })
+    console.log(distanceWalkedKmArr)
+}
+
+
+-----------------------------------------------------------------------------------------------------------------
+import { playlistArr } from '/playlist.js'
+
+/*
+Challenge
+1. Refactor the code below to use .map() 
+   instead of the for loop.
+   ⚠️ Don't worry about the commas for now.
+*/
+
+const newplaylistHtml = playlistArr.map(function(item){
+    return `<section class="card">
+    <div class="card-start">
+        <img src="/images/${item.albumArt}">const total
+    </div>
+        <div class="card-mid">
+            <h4 class="card-title">${item.title}</h4>
+            <p class="card-artist">${item.artist}</p>
+        </div>
+    <div class="card-end">
+        <p class="card-menu">...</p>
+    </div>
+</section>
+    `
+})
+
+document.getElementById('container').innerHTML = newplaylistHtml.join('')
+
+------------------------------------------------------------------------------------------------------------------
+.join()
+
+Gör om array till sträng (då faller kommetecknet bort då strängar inte är kommaseparerade i syntaxen)
+Man kan välja vilket tecken som ska separera varje ord i strängen (',')
+Returnerar en ny sträng
+
+---------------------------------------------------------------------------------------------------------------
+
+forEach vs map
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Using forEach
+numbers.forEach(function(number) {
+    console.log(number * 2);  // Performs an action for each element
+});
+
+// Using map
+const doubledNumbers = numbers.map(function(number) {
+    return number * 2;  // Transforms each element and creates a new array
+});
+
+console.log(doubledNumbers);  // [2, 4, 6, 8, 10]
+
+----------------------------------------------------------------------------------------------------------------
+
+Man kan sammanfatta:
+Använd .map() om man behöver en ny array att arbeta med
+Använd .forEach() om man inte behöver skapa en ny array
+
+----------------------------------------------------------------------------------------------------------------
+
+Att tänka på säkerheten när du använder innerHTML är viktigt för att förhindra potentiella 
+säkerhetshot som t.ex. cross-site scripting (XSS) attacker.
+Här är ett exempel på hur man kan undvika detta:
+
+const filmInput = document.getElementById('film-input')
+const addBtn = document.getElementById('add-btn')
+const filmList = document.getElementById('film-list')
+
+addBtn.addEventListener('click', function() {
+    const newFilm = document.createElement('div')
+    newFilm.classList.add('film-item')
+    newFilm.textContent = filmInput.value
+    filmList.appendChild(newFilm)
+    filmInput.value = ''
+}) 
+
+-----------------------------------------------------------------------------------------------------------------
+
+Hoisting:
+
+Det är när funktionsdeklarationen flyttas till toppen av scopet innan det exekveras. Därför blir det "globalt" 
+
+-----------------------------------------------------------------------------------------------------------------
+
+Funktions uttryck
+Är inte hissade (hoisted)
+Är renare och tydligare att använda
+Används av många utvecklingsteam
+
+------------------------------------------------------------------------------------------------------------------
+
+Arrow functions
+
+const speedWarning = (speed) => `You are going at ${speed} mph!`
+
+console.log(speedWarning(40))
+
+När måste man använda brackets ()
+Om funktionen bara har en parameter så behövs inte ()
+Har funktionen fler än en parameter så behövs ()
+
+
+När man returnerar bara en rad med kodbehövs inte {} + return
+Mer komplex kod kräver både {} + return
+
+Arrow function med .map()
+
+const distanceTraveledMiles = [267, 345, 234, 190, 299]
+
+const distanceTraveledKm = distanceTraveledMiles.map( distance => Math.round(distance * 1.6 ))
+
+console.log(distanceTraveledKm);
+
+-----------------------------------------------------------------------------------------------------------------
+
+I JavaScript är en "inline function" eller "inline funktion" vanligtvis en anonym funktion 
+(en funktion som inte har ett namn) som definieras och används direkt på den plats där den behövs. 
+Denna teknik är möjlig tack vare funktioner som first-class citizens i JavaScript, vilket innebär att 
+de kan behandlas som värden och passas runt som argument till andra funktioner eller tilldelas till variabler.
+
+----------------------------------------------------------------------------------------------------------------
+.reduce() - sorterar och loopar på samma gång
+
+const grades = [75, 83, 66, 43, 55, 99, 87, 16, 89, 64, 70, 80, 94, 77, 66, 73]
+
+/*
+Challenge
+1. Use the .reduce() method to find the total of all of the students grades.
+2. Do some simple maths to log out the class average. 
+*/
+
+
+// console.log(`The class average is ????`)
+
+const totalGrades = grades.reduce(function(total, grade){
+    console.log(total, grade)
+    return total + grade
+}, 0)
+
+console.log(totalGrades)
+console.log(`${totalGrades/grades.length}`)
+
+------------------------------------------------------------------------------------------------------------
+
+Omgjort till arrow-funktion 
+
+const totalGrades = grades.reduce((total, currentGrade) => total + currentGrade)
+
+console.log(`The class average is ${totalGrades/grades.length}`)
+
+--------------------------------------------------------------------------------------------------------------
+
+import { studentsArr } from '/studentsArr'
+
+function calculateClassAverage(studentsArr) {
+    const totalGrades = studentsArr.reduce((total, currentStudent) => total + currentStudent.grade, 0);
+    return totalGrades / studentsArr.length;
+}
+
+console.log(calculateClassAverage(studentsArr))
+
+----------------------------------------------------------------------------------------------------------------
+
+The Ternary operator
+
+const exerciseTimeMins = 40
+
+// let message = ''
+
+// if (exerciseTimeMins < 30) {
+//     message = 'You need to try harder!'
+// }
+// else {
+//     message = 'Doing good!'
+// }
+
+const message = exerciseTimeMins < 30 ? 'You need to try harder!' : 'Doing good!'
+
+console.log(message)
+
+Mer komplex:
+
+const exerciseTimeMins = 20
+
+const message = exerciseTimeMins < 30 ? 'You need to try harder!' 
+    : exerciseTimeMins < 60 ? 'Doing good!' 
+    : 'Excellent!'
+
+console.log(message)
+
+----------------------------------------------------------------------------------------------------------------
+
+ÖVNING
+
+const playerGuess = 3
+const correctAnswer = 6
+
+/*
+Challenge 
+1. Refactor the if else statement to use a ternary operator.
+*/
+
+// let message = ''
+// if (playerGuess === correctAnswer) {
+//     message = 'Correct!'
+// }
+// else {
+//     message = 'Wrong!'
+// }
+
+const message = playerGuess === correctAnswer ? 'Correct!' : 'Wrong!'
+
+console.log(message)
+
+-----------------------------------------------------------------------------------------------------------------
+let likeIconClass = ''
+        
+        if (tweet.isLiked){
+            likeIconClass = 'liked'
+        }
+        
+        let retweetIconClass = ''
+        
+        if (tweet.isRetweeted){
+            retweetIconClass = 'retweeted'
+        }
+
+let likeIconClass = tweet.isLiked ? 'liked' : '';
+let retweetIconClass = tweet.isRetweeted ? 'retweeted' : '';
+
+------------------------------------------------------------------------------------------------------------------
+
+Restparametern ...names
+
+function setPermissionLevel(permissionLevel, ...names) {
+    names.forEach(name => {
+        console.log(`${name} now has ${permissionLevel} level access.`);
+    });
+}
+
+setPermissionLevel("admin", "Alice", "Bob", "Charlie");
+setPermissionLevel("user", "David");
+setPermissionLevel("manager", "Eve", "Frank");
+
+---------------------------------------------------------------------------------------------------------------
+ÖVNING
+
+function getLabelsHtml(text, sender, ...staffObjs) {
+    const labelsHtml = staffObjs.map(staffObj => 
+`<div class="label-card">
+    <p>Dear ${staffObj.name}</p>
+    <p>${text}</p>
+    <p>Best wishes,</p>
+    <p>${sender}</p>
+</div>`
+    ).join('')
+    return labelsHtml
+}
+
+const text = 'Thank you for all your hard work throughout the year! 🙏🎁'
+const sender = 'Tom'
+
+document.getElementById('labels-container').innerHTML = getLabelsHtml(
+    text, 
+    sender, 
+    {name: 'Sally'}, 
+    {name: 'Mike'}, 
+    {name: 'Rob'}, 
+    {name: 'Harriet'}
+    ) 
+
+Samma övning men med return direkt istället för att spara i variabel
+
+function getLabelsHtml(text, sender, ...staffObjs) {
+    return staffObjs.map(staffObj => 
+`<div class="label-card">
+    <p>Dear ${staffObj.name}</p>
+    <p>${text}</p>
+    <p>Best wishes,</p>
+    <p>${sender}</p>
+</div>`
+    ).join('')
+}
+
+const text = 'Thank you for all your hard work throughout the year! 🙏🎁'
+const sender = 'Tom'
+
+document.getElementById('labels-container').innerHTML = getLabelsHtml(
+    text, 
+    sender, 
+    {name: 'Sally'}, 
+    {name: 'Mike'}, 
+    {name: 'Rob'}, 
+    {name: 'Harriet'}
+    ) 
+
+-------------------------------------------------------------------------------------------------------------
+
+...Spread operator
+
+const averageSharePriceByMonthQ1 = [109.6, 103.3, 89.4]
+const averageSharePriceByMonthQ2 = [109.3, 126.1, 103.3]
+const averageSharePriceByMonthQ3 = [120.8, 102.3, 106.8]
+const averageSharePriceByMonthQ4 = [110.9, 119.8, 113.7]
+
+    const combineArray = [
+        ...averageSharePriceByMonthQ1,
+        ...averageSharePriceByMonthQ2,
+        ...averageSharePriceByMonthQ3,
+        ...averageSharePriceByMonthQ4
+    ]
+
+function findPriceExtremes(arr){
+
+    
+    console.log(combineArray)
+    
+
+    const highest = Math.max(...combineArray)
+    const lowest = Math.min(...combineArray)
+    console.log(`The highest average share price was ${highest}`)
+    console.log(`The lowest average share price was ${lowest}`)
+}
+
+findPriceExtremes(combineArray)
+
+------------------------------------------------------------------------------------------------------------------
+
+short-circuiting
+
+// Here, someFunction() is not called because the left operand is falsy.
+const result = false && someFunction(); 
+
+// Here, someFunction() is not called because the left operand is truthy.
+const result = true || someFunction(); 
+
+Ja, du har helt rätt. De logiska operatorerna && (Och-operatorn) och || (Eller-operatorn) är i viss mening motsatser till varandra när det gäller deras short-circuiting-beteende.
+
+&& (Och-operatorn) kortsluter när den första operanden är falsk. Om den första operanden är falsk, kommer hela uttrycket vara falskt oavsett vad den andra operanden är, så den andra operanden utvärderas inte.
+|| (Eller-operatorn) kortsluter när den första operanden är sann. Om den första operanden är sann, kommer hela uttrycket vara sant oavsett vad den andra operanden är, så den andra operanden utvärderas inte.
+Så, i vissa situationer kan de ses som motsatser när det gäller vilken typ av villkor som resulterar i kortslutning.
+
+----------------------------------------------------------------------------------------------------------------
+
+Konstruktor i JavaScript
+
+Datum konstruktor i detta fallet
+
+const dateSnapshot = new Date()
+
+console.log(dateSnapshot.toString())
+
+------------------------------------------------------------------------------------------------------------------
+
+The Error() Constructor
+
+console.log(new Error('No username provided'))
+
+Koden efter throw exekveras inte
+throw new Error('No username provided')
+
+const person = {} kan också skrivas const person = new Object()
+
+
+------------------------------------------------------------------------------------------------------------------
+
+Challenge:
+1. Create a constructor function called 'Character'.
+2. Give it 'name' and 'collectedItemsArr' properties. 
+    - 'name' should hold the character’s name.
+	- 'collectedItemsArr' should hold an array of items. 
+       Initialise it to an empty array.
+3. Create an 'addItem' method which takes in an item as 
+   a parameter and adds it to 'collectedItemsArr'.
+4. The addItem method should log out a sentence like 
+   `Merlin now has: wand, map, potion`.
+5. Check it’s working by creating several instances of 
+   Character and adding items to their arrays.
+*/
+
+function Character(name){
+    this.name = name
+    this.collectedItemsArr = []
+    this.addItem = function(item){
+        this.collectedItemsArr.push(item)
+        console.log(`${this.name} now has: ${this.collectedItemsArr.join(', ')}`)
+    }
+}
+
+const wizard = new Character('Merlin')
+const witch = new Character('Hermione')
+wizard.addItem('wand')
+wizard.addItem('map')
+wizard.addItem('potion')
+witch.addItem('sword')
+witch.addItem('cloak of invisibility')
+
+----------------------------------------------------------------------------------------------------------------
+
+class Gamer {
+    constructor(name, score) {
+        this.name = name
+        this.score = score
+    }
+    
+    incrementScore() {
+        this.score++  
+    }
+}
+
+const dave = new Gamer('Dave', 0)
+const sarah = new Gamer('Sarah', 0)
+dave.incrementScore()
+console.log(dave)
+console.log(sarah)
+
+-----------------------------------------------------------------------------------------------------------------
+SAMMANFATTNING
+Object destructuing
+.map()
+.join()
+Function expressions
+Arrow functions
+import/export
+.reduce()
+Deafualt parameters
+Ternary operator
+Rest parameters
+The spread operator
+Short-circuting
+Constructor functions
+JS classes
+
+
+
+
+
+

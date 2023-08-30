@@ -1,0 +1,153 @@
+
+GRID
+
+Flexbox 1-dimension
+Antingen flex-direction: row eller column
+
+Med grid så kollapsar INTE margin vilket innebär att mellanrummet mellan elementen blir större. 
+
+Precis som med flexbox så följer barnen med i griden, det enda undantaget är att margin kollapsar inte 
+
+-----------------------------------------------------------------------------------------------------------------
+
+Detta skapar 5 st kolumner vadera 100px breda
+grid-template-columns: 100px 100px 100px 100px 100px
+
+Detta skapar 2 st rader, en som är 750px hög och en som är 500px hög
+grid-template-rows: 750px 500px
+
+Shorthand för detta är (först rader sen kolumner):
+grid-template: 100px 400px / 250px 250px 250px
+
+background: green
+grid-row-start: 2
+grid-row-end: 3
+grid-column-start: 1
+grid-column-end: 3
+
+Shorthand för detta:
+grid-row: start/end
+grid-column: start/end
+
+Man kan spänna över
+grid-column: 2 / span 2 = börjar på 2 och spänner sig över 2
+grid-row: 2 / span 2 = börjar på 2 och spänner sig över 2
+
+Går att köra med bara span också
+grid-column: span 2
+grid-row: span 2
+
+Eller om man bara vill att det ska spänna över en item räcker det med att skriva vart det ska börja
+grid-row: 5
+grid-column: 3
+
+-----------------------------------------------------------------------------------------------------------------
+Om man inte deklarerar en grid-template-row eller man har fler rader än vad vi har definierat så blir dessa
+till auto
+
+-----------------------------------------------------------------------------------------------------------------
+Gör gap, första för row och andra för column
+grid-gap: 0 1em
+
+-----------------------------------------------------------------------------------------------------------------
+
+När man deklarerar dispaly: grid på ett element, blir alla grid-element automatsik placerade inuti en rad (row)
+även om man inte har deklarerat en rad ännu.
+
+-----------------------------------------------------------------------------------------------------------------
+
+Implicit och explicit rows och columns
+
+Implicita rader och columner är auto (width och height styrs av content)
+Men detta går att styra med hjälp av:
+grid-auto-rows
+grid-auto-columns
+
+----------------------------------------------------------------------------------------------------------------
+Grid areas
+
+Måste ha rektangelformation
+En punkt istället för namnet genererar en tom plats (ignoreras) 
+
+.grid {
+  display: grid;
+  grid-template-columns: 5em auto 5em;
+  grid-template-areas: 
+    "header header header"
+    ". content ."
+    ". sidebar ."
+    "footer footer footer"
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: 100px 300px 100px 100px;
+    grid-template-areas: 
+      ". . . ."
+      "header content sidebar ."
+      "footer footer footer footer";
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.big {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.grid-item {
+  background: #B823C1;
+  color: white;
+  padding: 1em 2em;
+  border: 2px solid purple;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.big {
+    padding: 3em 2em;
+    background: #FF5670;
+}
+
+    <body>
+        <div class="grid">
+            <div class="grid-item header">grid item</div>
+            <!-- <div class="grid-item">grid item</div> -->
+            <div class="grid-item sidebar">grid item</div>
+            <div class="grid-item big">grid item</div>
+            <!-- <div class="grid-item">grid item</div> -->
+            <div class="grid-item footer">grid item</div>
+        </div>
+    </body
+
+----------------------------------------------------------------------------------------------------------------
+minmax(100px, 300px) från 100 upp till 300
+
+1fr unit
+
+går inte att använda 1fr som min-value på minmax()
+
+-----------------------------------------------------------------------------------------------------------------
+
+grid-template-columns: repeat(3, 1fr);
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+

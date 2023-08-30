@@ -1,0 +1,204 @@
+Pixels = px
+
+Absolute units
+Är en absolut enhet som alltid är densamma oavsett på vilken skärm den visas.
+Går bra att använda om man inte bygger en responsiv webbplats
+
+Relative units
+Relativa till andra värden
+Dynamisk och flexibla
+Man kan ändra storlek och skala
+
+Relativa enheter
+Procent - Baseras på bredden av sin förälder
+90% är an vanlig bredd på content på en sida
+
+Två bilder bredvid varandra, använd 50% eller mindre om man vill skapa mellanrum mellan bilderna.
+Använd också justify-content: space-between
+
+.container {
+    width: 90%;
+    max-width: 800px;
+}
+
+Sätt alltid width till en procent och sen en max-width till en px
+
+Använda egenskaper:
+max-width
+min-width
+bilder är alltid inline, behöver sättas till display: block för att kunna centreras
+
+------------------------------------------------------------------------------------------------------------------
+EM
+1em är lika med förälderns font-size värde.
+Alltså kolla alltid på förälderns font-size först och dividera värdet du vill ha med förläderns.
+Finns det inget värde på föräldern (närmaste förälder) så tillämpas webbläsarens standardvärde som är 16px 
+
+OBS! För att räkna ut vilket EM man ska ha = önskad pixel värde / förälder elementets font-size i pixel
+https://www.w3schools.com/tags/ref_pxtoemconversion.asp
+
+Margin och padding-värden i em är relativt till det elementet du är i och dess font-size värde.
+Finns ingen explicit värde så ärvs 16px  
+
+-----------------------------------------------------------------------------------------------------------------
+Root em = rem
+
+Är alltid relativt till rot <html> elementet istället för förälderelementet
+Rekommenderas för font-size
+
+-----------------------------------------------------------------------------------------------------------------
+
+Text line height
+Är relativt till bodyn, alltså 16 px
+Så 2 line-height motsvarar 32px
+
+Rekommenderas att sätta line-height direkt på p-taggar
+
+-----------------------------------------------------------------------------------------------------------------
+Vilken enhet ska man välja? px, %, em eller rem
+
+Font sizes = Använd rem
+Margin & padding = Använd em då det baseras på elementets aktuella font-size
+Line height = Använd ingen enhet utan bara nummer
+Bredd = Använd % till containers och bilder (komplettera med max-width)
+Max-width = Använd px, då man kan göra en begränsning på vissa skärmar så att innehållet inte blir för brett
+
+------------------------------------------------------------------------------------------------------------------
+
+MEDIA QUERIES
+
+Detta innebär om body är upp till 499px
+@media (max-width: 499px) { 
+    body {
+        color: #faf9f6;
+        background-color: #202945;
+    }
+}
+
+Detta innebär om body är från 499 eller större
+@media (min-width: 499px) {
+    body {
+        color: #faf9f6;
+        background-color: #202945;
+    }
+}
+
+Detta innebär att ändringen träder i kraft mellan 500px upp till 799px
+@media (min-width: 500px) and (max-width: 799px) {
+    body {
+        color: aliceblue;
+        background-color: cornflowerblue;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+Breakpoints - media queries
+
+Ändra layout
+Uppdatera textstorlek
+Sidjusterungar
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
+
+-----------------------------------------------------------------------------------------------------------------
+
+Mobile-first 
+
+Man skriver CSS för mobila enheter först
+Sedan skriver man media queries för att justera layouten och anspassa till större skärmar
+
+Det är enklare att gå ifrån liten skärm till större när man skriver CSS, krävs mindre kod
+
+Vanliga brytpunkter:
+480px - mobil
+768px - padda
+1024px - små datorskärmar
+1280px - desktop/stora skärmar
+
+https://developer.chrome.com/docs/devtools/device-mode/
+
+-----------------------------------------------------------------------------------------------------------------
+
+Sätta två nivåer till display: flex
+
+
+ header .container,
+    nav ul {
+        display: flex;
+    }
+    
+----------------------------------------------------------------------------------------------------------------
+Använd flexbox istället för media query 
+
+flex-wrap
+flex-basis
+flex-grow
+
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="image-container">
+            <div class="pet-item expand">
+                <img src="images/dog-1.jpg" alt="Australian shepherd">
+            </div>
+            <div class="pet-item">
+                <img src="images/cat-1.jpg" alt="Orange tabby cat">               
+            </div>
+            <div class="pet-item"> 
+                <img src="images/dog-2.jpg" alt="Jack Russell Terrier">               
+            </div>
+            <div class="pet-item">
+                <img src="images/cat-2.jpg" alt="Grey tabby cat">                  
+            </div>
+            <div class="pet-item">
+                <img src="images/dog-3.jpg" alt="Remmy the beagle pup">             
+            </div>
+            <div class="pet-item expand">
+                <img src="images/cat-3.jpg" alt="Startled blue-eyed cat">                 
+            </div>      
+        </div>
+    </body>
+</html>
+
+.image-container {
+    max-width: 800px;
+    line-height: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid;
+}
+
+.pet-item {
+    flex-basis: 220px;
+    flex-grow: 1;
+}
+
+
+.expand {
+    flex: 320px;
+}
+
+img {
+    width: 100%;
+}
+
+
+object-fit: cover; Liknar background-size: cover
+-----------------------------------------------------------------------------------------------------------------
+
+SAMMANFATTNING
+Tänka responsivt
+Percentage, em och rem
+Media queries and mobile-first
+flex-wrap and gap
+flex-basis, flex-grow and flex
+
+

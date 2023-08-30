@@ -1,0 +1,170 @@
+Centrera position: fixed
+top: 0
+bottom: 0
+left: 0
+right: 0
+margin: auto
+
+---------------------------------------------------------------------------------------------------------------
+
+setTimeout
+Antingen nästla eller sätta efter varandra men med längre tid
+
+//Nästla
+setTimeout(function(){
+    console.log('Lima!')
+	setTimeout(function(){
+    		console.log('Lima!')
+	}, 3000)
+}, 3000)
+
+//Efter varandra
+
+setTimeout(function(){
+    console.log('Lima!')
+}, 3000)
+setTimeout(function(){
+    console.log('Lima!')
+}, 6000)
+
+----------------------------------------------------------------------------------------------------------------
+
+Forms
+<form>
+                <label for="astronautName">Astronaut Name 👩‍🚀</label>
+                <input 
+                    type="text" 
+                    id="astronautName" 
+                    name="astronautName"
+                    placeholder="Neil Armstrong"
+		    required
+                    >
+                <label for="astronautEmail">Astronaut Email</label>
+                <input 
+                    type="email" 
+                    id="astronautEmail" 
+                    name="astronautEmail"
+                    placeholder="n.armstrong@nasa.com"
+                    >
+                <label for="astronautPassword">Password</label>
+                <input 
+                    type="password" 
+                    id="astronautPassword" 
+                    name="astronautPassword"
+                    placeholder="******"
+                    >
+            </form>
+
+När man placerar en knapp <button> inuti en form så betraktas den som en skicka-knapp direkt utan extra kod
+Går att använda både dessa alternativ:
+<input type="submit">
+<button>submit</button>
+
+Ange vilken knapp som är submit genom type="submit"
+
+Det finns tre typer av knappar att använda inuti en form:
+type="submit" - skickar
+type="reset" - raderar
+type="button" - inget händer
+
+----------------------------------------------------------------------------------------------------------------
+För att förhindra att formuläret skickas per default (att det laddas om direkt vilket är irriterande)
+
+loginForm.addEventListener('submit', function(e){
+    e.preventDefault()
+})
+
+-----------------------------------------------------------------------------------------------------------------
+loginFormData = objekt som skapas genom FormData 
+FormaData = konstruktor
+
+const loginForm = document.getElementById('login-form')
+
+loginForm.addEventListener('submit', function(e){
+    e.preventDefault()
+    
+    const loginFormData = new FormData(loginForm)
+    console.log(loginFormData)
+
+    const name = loginFormData.get('astronautName')
+    console.log(name) 
+    const email = loginFormData.get('astronautEmail')
+    console.log(email) 
+    const password = loginFormData.get('astronautPassword')
+    console.log(password) 
+
+})
+
+----------------------------------------------------------------------------------------------------------------
+
+const decrement = document.getElementById('decrement')
+const increment = document.getElementById('increment')
+const quantityDisplay = document.getElementById('quantity-display')
+const cartBtn = document.getElementById('cartBtn')
+
+let quantity = 0
+
+decrement.addEventListener('click', function(){
+    quantity--
+    if (quantity === 0){
+        decrement.disabled = true
+        cartBtn.disabled = true
+    }     
+    quantityDisplay.innerText = quantity
+})
+
+increment.addEventListener('click', function(){
+    quantity ++
+    decrement.disabled = false
+    cartBtn.disabled = false
+    quantityDisplay.innerText = quantity
+})
+ 
+cartBtn.addEventListener('click', function(){
+    console.log(`Your order for ${quantity} pairs of shoes is being processed`)
+
+------------------------------------------------------------------------------------------------------------------
+När man gör något "disabled" kan man göra detta via css:
+.modal-close-btn:disabled{
+    color: whitesmoke;
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+------------------------------------------------------------------------------------------------------------------
+När man vill "toggla" något...alltså switcha on/off
+
+const sortBtn = document.getElementById('sort-btn')
+const container = document.getElementById('container')
+                  
+sortBtn.addEventListener('click', function(){
+    container.classList.toggle('reverse')
+})
+
+
+classList betyder lista av klasser i class i css.
+.container{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.reverse{
+    flex-direction: row-reverse;
+}
+------------------------------------------------------------------------------------------------------------------
+aria-label = För skärmläsare
+
+-----------------------------------------------------------------------------------------------------------------
+
+SAMMANFATTNING
+setTimout
+element.style
+forms
+formData & .get()
+event.preventDefault
+CSS: row-reverse
+toggling classes
+'disabled' attribute
+

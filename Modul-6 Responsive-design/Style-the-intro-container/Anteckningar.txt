@@ -1,0 +1,49 @@
+Ändras flex-direction till coumn så ändras även justify-content och align-items
+
+-----------------------------------------------------------------------------------------------------------------
+
+text-transform: uppercase / capilize
+
+
+-----------------------------------------------------------------------------------------------------------------
+Viewport enheter - Är relativt till anvädarens viewport
+Används oftast på höjden (height), sätt min-height: 100vh
+
+vh - viewport height
+vw - viewport width
+
+1vw är lika med 1% av viewportens höjd
+
+-----------------------------------------------------------------------------------------------------------------
+
+Använd background color och image tillsammans.
+Ifall image inte fungerar så fungerar iallafall bakgrundsfärgen
+
+----------------------------------------------------------------------------------------------------------------- 
+
+Order values
+-1 display item first
+1 display item last
+
+---------------------------------------------------------------------------------------------------------------
+
+box-sizing: border-box
+Inkluderar allt i width
+
+.promo-card {
+    width: 400px; <------
+    height: 400px;
+    padding: 25px;
+    border: solid 5px #5035ff;
+    box-sizing: border-box;
+
+Universal (*) selector
+Selects all elements
+Apply box-sizing in on palce
+
+*, *::before, *::after {
+    box-sizing: border-box;    
+}
+
+----------------------------------------------------------------------------------------------------------------
+

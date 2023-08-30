@@ -1,0 +1,193 @@
+Textarea
+Tänk på att sätta resize till none för att motverka ändring av storleken
+
+<div class="container">
+                <textarea 
+                    placeholder="Ask me anything!" 
+                    id="chat-input"></textarea>
+                <button id="talk-btn">Talk to me!</button>
+            </div>
+
+textarea{
+    width: 239px;
+    height: 50px;
+    margin: 0px;
+    padding: 5px;
+    resize: none;
+}
+
+------------------------------------------------------------------------------------------------------------------
+För att iterera över array med forEach
+
+const characters = [
+    {
+        title: 'Ninja',
+        emoji: '🥷',
+        powers: ['agility', 'stealth', 'aggression'],
+    },
+    {
+        title: 'Sorcerer',
+        emoji: '🧙',
+        powers: ['magic', 'invisibility', 'necromancy'],
+    },
+    { 
+        title: 'Ogre',
+        emoji: '👹',
+        powers: ['power', 'stamina', 'shapeshifting'],
+    },  
+    { 
+        title: 'Unicorn',
+        emoji: '🦄',
+        powers: [ 'flight', 'power', 'purity'],
+    }
+]
+
+characters.forEach(function(character) {
+    character.powers.forEach(function(power) {
+        console.log(power);
+    });
+});
+
+Med index
+
+characters.forEach(function(character, index){
+    console.log(index, character.title)
+})
+
+-----------------------------------------------------------------------------------------------------------------
+CDN
+cdnjs.com
+
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+
+-----------------------------------------------------------------------------------------------------------------
+uuid = en unik identifierare (universally unique identifierare)
+
+Data Attributes
+<div class="img-container">
+	<img src="dino2.jpeg"
+		alt="Man in front of dinosaur"
+		id="image-1"> <---KOPPLAT TILL BILDEN!!
+	<div class="social-icons-container">
+		<i class="fa-solid fa-heart" data-heart="image-1"></i>
+		<i class="fa-solid fa-share" data-share="image-1"></i>  <------HÄR!!
+	</div>
+</div>
+
+OBS! Använd inte stora bokstäver vid namngivning av data attribut i HTML!!
+Separare istället ord med bindesträck i HTML
+Använd camelCase i JavaScript
+
+----------------------------------------------------------------------------------------------------------------
+Referenstyper: objekt och arrayer
+Om man vill göra en riktigt kopia (inte en referens) av ett objekt:
+Detta kallas att göra en "deep copy" 
+
+----------------------------------------------------------------------------------------------------------------
+
+Filter
+Find
+Map
+
+----------------------------------------------------------------------------------------------------------------
+Flip a boolean targetTweetObj.isLiked = !targetTweetObj.isLiked
+
+------------------------------------------------------------------------------------------------------------------
+
+const galleryContainer = document.getElementById('gallery-container')
+
+/*
+Challenge:
+1. Add functionality so that when a user 
+   clicks the share icon it turns green. 
+   Clicking it a second time should return 
+   it to white.
+*/
+let isShared = false
+let isLiked = false
+
+
+document.addEventListener('click', function(e){
+    if(e.target.dataset.heart){
+        isLiked = !isLiked
+        render()
+    }
+    else if(e.target.dataset.share){
+        isShared = !isShared
+        render()
+    }
+})
+
+function render(){ 
+    
+    let heartClass = ''
+    let sharedClass = ''
+    
+    if(isLiked){
+        heartClass = 'liked'
+    }
+    
+    if(isShared){
+        sharedClass = 'shared'
+    }
+       
+    let imageHtml = `
+    		<div id="image-1" class="img-container">
+			<img src="dino2.jpeg" alt="Man in front of dinosaur">
+			<div class="social-icons-container">
+				<i class="fa-solid fa-heart ${heartClass}" data-heart="image-1"></i>
+				<i class="fa-solid fa-share ${sharedClass}" data-share="image-1"></i>
+			</div>
+    `
+    galleryContainer.innerHTML = imageHtml
+}
+
+render()
+
+-----------------------------------------------------------------------------------------------------------------
+Hur man kan använda e.target
+
+document.addEventListener("click", function (e) {
+  if (e.target.dataset.like) {
+    handleLikeClick(e.target.dataset.like);
+  } else if (e.target.dataset.retweet) {
+    handleRetweetClick(e.target.dataset.retweet);
+  } else if (e.target.dataset.reply){
+    handleReplyClick(e.target.dataset.reply)
+  } else if (e.target.id === 'tweet-btn') {
+    handleTweetBtnClick();
+}
+});
+
+const tweetBtn = document.getElementById("tweet-btn");
+Går också att göra (e.target === tweetBtn)
+
+-----------------------------------------------------------------------------------------------------------------
+Vad är UUID?
+
+En sträng med 36 tecken
+Används för att identifiera delar av data
+Används globalt
+
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+
+-----------------------------------------------------------------------------------------------------------------
+
+SAMMANFATTNING
+textarea
+.forEach() - Arraymetod för att iterera över arrays
+data attributes -  data-like="${tweet.uuid}"
+conditionally render styles
+NOT operator - targetTweetObj.isLiked = !targetTweetObj.isLiked
+CDNs - add icons, generate UUID
+
+Utökad fuktionalitet
+Lägg till möjlighet att svara på en tweet
+Spara tweets, likes and retweets i localStorage
+Radera en tweet
+
+
